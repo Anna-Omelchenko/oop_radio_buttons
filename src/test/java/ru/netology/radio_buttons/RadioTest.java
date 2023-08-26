@@ -181,8 +181,8 @@ public class RadioTest {
     @Test
     public void testSetCorrectVolume() {
         Radio radio = new Radio();
-        radio.setVolume(95);
-        byte expected = 95;
+        radio.setVolume(96);
+        byte expected = 96;
         byte actual = radio.getCurrentVolume();
         Assertions.assertEquals(expected, actual);
     }
