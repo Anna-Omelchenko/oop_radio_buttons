@@ -1,31 +1,20 @@
 package ru.netology.radio_buttons;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@Getter
 public class Radio {
     private byte numberOfStations = 10;
     private byte currentStation;
     private byte currentVolume;
-
-    public Radio() {
-    }
 
     public Radio(byte numberOfStations) {
         if (numberOfStations > 0) {
             this.numberOfStations = numberOfStations;
         }
     }
-
-    public byte getNumberOfStations() {
-        return numberOfStations;
-    }
-
-    public byte getCurrentStation() {
-        return currentStation;
-    }
-
-    public byte getCurrentVolume() {
-        return currentVolume;
-    }
-
 
     public void setStationNumber(int newStation) {
         if (newStation >= 0 && newStation < numberOfStations) {
