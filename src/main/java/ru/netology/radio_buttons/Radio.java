@@ -1,8 +1,22 @@
 package ru.netology.radio_buttons;
 
 public class Radio {
+    private byte numberOfStations = 10;
     private byte currentStation;
     private byte currentVolume;
+
+    public Radio() {
+    }
+
+    public Radio(byte numberOfStations) {
+        if (numberOfStations > 0) {
+            this.numberOfStations = numberOfStations;
+        }
+    }
+
+    public byte getNumberOfStations() {
+        return numberOfStations;
+    }
 
     public byte getCurrentStation() {
         return currentStation;
@@ -14,7 +28,7 @@ public class Radio {
 
 
     public void setStationNumber(int newStation) {
-        if (newStation >= 0 && newStation <= 9) {
+        if (newStation >= 0 && newStation < numberOfStations) {
             currentStation = (byte) newStation;
         }
     }
@@ -26,7 +40,7 @@ public class Radio {
     }
 
     public void nextStation() {
-        if (currentStation == 9) {
+        if (currentStation == numberOfStations - 1) {
             currentStation = 0;
         } else {
             currentStation++;
@@ -35,7 +49,7 @@ public class Radio {
 
     public void prevStation() {
         if (currentStation == 0) {
-            currentStation = 9;
+            currentStation = (byte) (numberOfStations - 1);
         } else {
             currentStation--;
         }
